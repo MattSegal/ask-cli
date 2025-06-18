@@ -42,10 +42,10 @@ def chat():
 
     """
     settings = load_settings()
-    if settings.ANTHROPIC_API_KEY:
-        vendor = vendors.anthropic
-    elif settings.OPENAI_API_KEY:
+    if settings.OPENAI_API_KEY:
         vendor = vendors.openai
+    elif settings.ANTHROPIC_API_KEY:
+        vendor = vendors.anthropic
     else:
         raise click.ClickException("Set either ANTHROPIC_API_KEY or OPENAI_API_KEY as envars")
 
@@ -129,10 +129,10 @@ def print_separator(state: ChatState):
     total_chars = sum(len(m.content) for m in messages)
 
     mode_display = state.mode.replace("_", " ")
-    msg_prefix = f"\[{mode_display} mode]"
+    msg_prefix = f"[{mode_display} mode]"
     ssh_prefix = ""
     if state.ssh_config is not None:
-        ssh_prefix = f"\[connected to {state.ssh_config.conn_name}]"
+        ssh_prefix = f"[connected to {state.ssh_config.conn_name}]"
 
     msg_suffix = f" [{num_messages} msgs, {total_chars} chars]"
     separator = "-" * (console.width - len(msg_prefix) - len(msg_suffix) - len(ssh_prefix))

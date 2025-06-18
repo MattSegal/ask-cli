@@ -2,7 +2,6 @@ import subprocess as sp
 
 import click
 from rich.progress import Progress
-from rich.console import Console
 
 from src.settings import load_settings
 from src import vendors

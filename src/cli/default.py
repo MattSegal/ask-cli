@@ -27,10 +27,10 @@ def default(text: tuple[str, ...]):
         stdin_text = click.get_text_stream("stdin").read()
         query_text = f"{query_text}\n{stdin_text}" if query_text else stdin_text
 
-    if settings.ANTHROPIC_API_KEY:
-        vendor = vendors.anthropic
-    elif settings.OPENAI_API_KEY:
+    if settings.OPENAI_API_KEY:
         vendor = vendors.openai
+    elif settings.ANTHROPIC_API_KEY:
+        vendor = vendors.anthropic
     else:
         raise click.ClickException("Set either ANTHROPIC_API_KEY or OPENAI_API_KEY as envars")
 
