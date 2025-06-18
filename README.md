@@ -34,12 +34,16 @@ Note: GIF is out of date
 Get access to binary everywhere
 
 ```bash
+# Build the wheel
 python -m venv venv
 . ./venv/bin/activate
 pip install poetry
 poetry build
 deactivate
-pip install --user --upgrade --force-reinstall dist/*.whl
+
+# Install with pipx
+brew install pipx
+pipx install dist/*.whl
 ```
 
 ## Dev setup
