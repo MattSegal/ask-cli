@@ -43,7 +43,7 @@ deactivate
 
 # Install with pipx
 brew install pipx
-pipx install dist/*.whl
+pipx install --force dist/*.whl
 ```
 
 ## Dev setup
